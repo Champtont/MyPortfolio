@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Tourney:ital,wght@0,100;0,700;1,100;1,700&display=swap");
+
+/*variables*/
+:root {
+  --night: #0a090c;
+  --anti-flash-white: #f0edee;
+  --midnight-green: #07393c;
+  --caribbean-current: #2c666e;
+  --non-photo-blue: #90ddf0;
+  --black: #080705;
+  --charcoal: #40434e;
+  --wine: #702632;
+  --cordovan: #912f40;
+  --baby-powder: #fffffa;
+  --selective-yellow: #fbaf00;
+  --gold: #ffd639;
+  --salmon: #ffa3af;
+  --honolulu-blue: #007cbe;
+  --pigment-green: #00af54;
+}
+
+/*general styling*/
+
+body {
+  width: 100dvw;
+  height: 100dvh;
+  margin: 0;
+  overflow: hidden;
+}
+/*nav*/
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+}
+
+#aboutBtn {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/*footer*/
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+}
+
+/*MainContainer*/
+
+#mainContainer {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+/*left*/
+#leftSlide {
+  width: 100dvw;
+  height: 100dvh;
+  position: absolute;
+  top: 0;
+  left: -100dvw;
+  background-color: var(--gold);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  transition: left 2s ease-in-out;
+}
+/*middle*/
+#middleSlide {
+  font-family: "Tourney";
+  color: white;
+  width: 100dvw;
+  height: 100dvh;
+  top: 0;
+  left: 0;
+  background-color: var(--honolulu-blue);
+  transition: transform 2s ease-in-out;
+}
+/*right*/
+#rightSlide {
+  width: 100dvw;
+  height: 100dvh;
+  position: absolute;
+  top: 0;
+  right: -100dvw;
+  background-color: var(--pigment-green);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  transition: right 2s ease-in-out;
+}
+
+/*JS*/
+.active {
+  color: white;
+}
+.hidden {
+  opacity: 0;
+}
+.showing {
+  display: block;
+}
+/*media queries*/
+@media only screen and (max-width: 500px) {
+  h1 {
+    font-size: 15pt;
+  }
+}
+@media only screen and (min-width: 501px) {
+  h1 {
+    font-size: 25pt;
+  }
+}
+@media only screen and (min-width: 801px) {
+  h1 {
+    font-size: 45pt;
+  }
+}
