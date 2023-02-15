@@ -36,6 +36,12 @@ const navigateToProjects = (e) => {
   skillSlide.style.left = 0;
   homeSlide.style.transform = "translateX(-100dvw)";
   projectSlide.style.right = 0;
+  if (projectSlide) {
+    projectsBtn.classList.add("active");
+    skillsBtn.classList.remove("active");
+    homeBtn.classList.remove("active");
+    aboutBtn.style.opacity = 0;
+  }
   console.log("projects");
 };
 
