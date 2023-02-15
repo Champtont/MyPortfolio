@@ -11,10 +11,11 @@
   <body>
     <nav id="nav">
         <div id="navBtnBox">
-            <button id="aboutBtn" class="navButtons"><a href="#about">ABOUT</a></button>
+            <a href="#about"><button id="aboutBtn" class="navButtons">ABOUT</button></a>
             <button id="skillsBtn" class="navButtons">SKILLS</button>
             <button id="homeBtn" class="navButtons active">HOME</button>
             <button id="projectsBtn" class="navButtons">PROJECTS</button>
+            <a href="#experiences"><button id="experienceBtn" class="navButtons">RESUME</button></a>
         </div>
     </nav>
     <div id="mainContainer">
@@ -27,15 +28,34 @@
         </div>
       </div>
       <div id="middleSlide">
-        <div id="introduction"><h1>Courtney Hampton-Thomas</h1><h3>Full Stack Developer</h3></div>
-        <div id="themePicker">
-            <button class="themeButton">one</button>
-            <button class="themeButton">two</button>
-            <button class="themeButton">three</button>
+        <div id="middleFilter">
+            <div id="introduction">
+                <h1>Courtney Hampton-Thomas</h1>
+                <h2>Full Stack Developer</h2>
+            </div>
+            <div id="themeBox">
+                <div id="dblChevron">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                      </svg>
+                </div>
+                <div id="mainThemeBox">
+                    <h3>Change the theme if you'd like:</h3>
+                    <div id="themePicker">
+                        <button class="themeButton">Original</button>
+                        <button class="themeButton">Light</button>
+                        <button class="themeButton">Dark</button>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
       <div id="rightSlide">
-        <div id="projects"></div>
+          <h2>Projects</h2>
+        <div id="projects">
+        </div>
+        <h2 id="experiences">Resume</h2>
       </div>
     </div>
     <footer>
