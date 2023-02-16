@@ -26,6 +26,8 @@ body {
   height: 100dvh;
   margin: 0;
   overflow: hidden;
+  font-family: "Audiowide";
+  background-color: var(--honolulu-blue);
 }
 /*nav*/
 nav {
@@ -35,31 +37,55 @@ nav {
   top: 0;
   left: 0;
   background-color: #40434edd;
-  box-shadow: var(--night) 0 0 15px;
   display: flex;
   align-items: center;
   z-index: 200;
+  transition: box-shadow 1s ease-in-out;
 }
 #navBtnBox {
   margin-left: auto;
   margin-right: auto;
   display: flex;
   justify-content: space-between;
-  transform: translateX(-30px);
+  transform: translateX(-50px);
   transition: transform 1s ease-in-out;
 }
 .navButtons {
   background-color: transparent;
+  font-family: "Audiowide";
   border: none;
   padding: 0.5em 1em;
+  transition: color 0.3s ease-out;
 }
+
+.navButtons:hover {
+  color: var(--non-photo-blue);
+  text-shadow: #007cbe 0 0 5px;
+}
+a {
+  text-decoration: none;
+}
+
 #aboutBtn {
   opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+#skillsBtn {
+  opacity: 100;
+  transition: opacity 1s ease-in-out;
+}
+#projectsBtn {
+  opacity: 100;
   transition: opacity 1s ease-in-out;
 }
 #experienceBtn {
   opacity: 0;
   transition: opacity 1s ease-in-out;
+}
+#backToTopBtn {
+  width: 80.81px;
+  display: none;
+  animation: upAndDown infinite 2s linear;
 }
 
 /*footer*/
@@ -91,10 +117,66 @@ footer {
   position: absolute;
   top: 0;
   left: -100dvw;
-  background-color: var(--gold);
+  background-color: var(--honolulu-blue);
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
   overflow-x: hidden;
   overflow-y: scroll;
-  transition: left 2s ease-in-out;
+  scroll-behavior: smooth;
+  transition: left 1s ease-in-out;
+}
+#leftSlide::-webkit-scrollbar {
+  width: 4px;
+  background-color: transparent;
+  position: fixed;
+  right: 0;
+}
+#leftSlide::-webkit-scrollbar-thumb {
+  background-color: var(--night);
+  border-radius: 20px;
+}
+
+#skills {
+  margin-top: 4em;
+  width: 80%;
+  min-height: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#skills > h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+#skillBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2px;
+  align-items: center;
+}
+.pngSkill {
+  width: 55px;
+  aspect-ratio: 1;
+  box-shadow: inset var(--night) 0 0 10px;
+  border-radius: 10px;
+}
+.pngSkill:hover {
+  animation: upAndDown infinite 2s linear;
+}
+#currentBox {
+  display: flex;
+  justify-content: space-around;
+}
+#about {
+  padding: 2em 2em 4em 2em;
+  text-align: center;
+  background-color: var(--honolulu-blue);
+  transition: opacity 3s;
 }
 /*middle*/
 #middleSlide {
@@ -103,7 +185,7 @@ footer {
   width: 100%;
   height: 100%;
   background-color: var(--honolulu-blue);
-  transition: transform 2s ease-in-out;
+  transition: transform 1s ease-in-out;
   background-image: url("https://thumbs.gfycat.com/DelayedEmotionalAustrianpinscher-size_restricted.gif");
   background-repeat: no-repeat;
   background-size: cover;
@@ -120,37 +202,13 @@ footer {
   background-color: #04436582;
 }
 #introduction {
+  width: 90%;
+  margin: auto;
 }
-#themeBox {
-  background-color: #0807059d;
-  width: 70%;
-  padding: 0.5em;
-  border-radius: 10px 0 0 0;
-  display: flex;
-  justify-content: space-around;
-  position: absolute;
-  right: -60dvw;
-  bottom: 2.9em;
+.bi-gear-wide-connected {
+  animation: spin infinite 5s linear;
 }
-#dblChevron {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: sideToSideOut infinite 1s ease-in-out;
-}
-#mainThemeBox {
-  border-left: var(--anti-flash-white) 1pt solid;
-  padding-left: 1em;
-  text-align: center;
-}
-h3 {
-  margin-top: 0;
-  margin-bottom: 0.5em;
-}
-#themePicker {
-  display: flex;
-  justify-content: space-around;
-}
+
 /*right*/
 #rightSlide {
   width: 100dvw;
@@ -161,7 +219,30 @@ h3 {
   background-color: var(--pigment-green);
   overflow-x: hidden;
   overflow-y: scroll;
-  transition: right 2s ease-in-out;
+  transition: right 1s ease-in-out;
+}
+#rightSlide::-webkit-scrollbar {
+  width: 4px;
+  background-color: transparent;
+  position: fixed;
+  right: 0;
+}
+#rightSlide::-webkit-scrollbar-thumb {
+  background-color: var(--night);
+  border-radius: 20px;
+}
+#projectsBox {
+  margin-top: 4em;
+  width: 80%;
+  min-height: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#experiences {
+  padding-bottom: 4em;
 }
 
 /*contact Icons*/
@@ -170,9 +251,16 @@ h3 {
   transition: transform 1s ease-in-out, color 1s ease-in-out;
 }
 
+.contactIcon > a:hover,
 .contactIcon:hover {
   color: white;
   transform: scale(1.1);
+}
+
+.contactIcon > a {
+  text-decoration: none;
+  color: var(--charcoal);
+  transition: transform 1s ease-in-out, color 1s ease-in-out;
 }
 
 /*JS*/
@@ -185,6 +273,17 @@ h3 {
 .showing {
   display: block;
 }
+.noShow {
+  display: none;
+}
+.scrollBar::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(
+    90deg,
+    var(--non-photo-blue),
+    var(--honolulu-blue),
+    var(--non-photo-blue)
+  );
+}
 
 /*animation*/
 @keyframes sideToSideOut {
@@ -196,6 +295,57 @@ h3 {
   }
   100% {
     transform: translateX(0);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes upAndDown {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(2px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes wiggle {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(30);
+  }
+  50% {
+    transform: rotate(0);
+  }
+  75% {
+    transform: rotate(-30);
+  }
+  100% {
+    transform: rotate(0);
   }
 }
 

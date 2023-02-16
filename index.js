@@ -1,4 +1,5 @@
 //getting nav buttons
+const backToTopBtn = document.getElementById("backToTopBtn");
 const aboutBtn = document.getElementById("aboutBtn");
 const skillsBtn = document.getElementById("skillsBtn");
 const homeBtn = document.getElementById("homeBtn");
@@ -12,6 +13,7 @@ const navSlide = document.getElementById("navBtnBox");
 const skillSlide = document.getElementById("leftSlide");
 const homeSlide = document.getElementById("middleSlide");
 const projectSlide = document.getElementById("rightSlide");
+const aboutSect = document.getElementById("about");
 
 //functions for nav
 const navigateToSkills = (e) => {
@@ -19,11 +21,15 @@ const navigateToSkills = (e) => {
   homeSlide.style.transform = "translateX(100dvw)";
   projectSlide.style.right = "-100dvw";
   if (skillSlide) {
-    navSlide.style.transform = "translateX(20px)";
+    setWiggle();
+    navSlide.style.transform = "translateX(50px)";
     skillsBtn.classList.add("active");
     homeBtn.classList.remove("active");
     projectsBtn.classList.remove("active");
+    backToTopBtn.classList.remove("active");
     aboutBtn.style.opacity = 100;
+    skillsBtn.style.opacity = 100;
+    projectsBtn.style.opacity = 0;
     resumeBtn.style.opacity = 0;
   }
 };
@@ -32,10 +38,14 @@ const navigateToHome = (e) => {
   homeSlide.style.transform = "translateX(0)";
   projectSlide.style.right = "-100dvw";
   if (homeSlide) {
-    navSlide.style.transform = "translateX(-30px)";
+    setWiggle();
+    navSlide.style.transform = "translateX(-50px)";
     homeBtn.classList.add("active");
     skillsBtn.classList.remove("active");
     projectsBtn.classList.remove("active");
+    backToTopBtn.classList.remove("active");
+    skillsBtn.style.opacity = 100;
+    projectsBtn.style.opacity = 100;
     aboutBtn.style.opacity = 0;
     resumeBtn.style.opacity = 0;
   }
@@ -45,17 +55,76 @@ const navigateToProjects = (e) => {
   homeSlide.style.transform = "translateX(-100dvw)";
   projectSlide.style.right = 0;
   if (projectSlide) {
-    navSlide.style.transform = "translateX(-100px)";
+    navSlide.style.transform = "translateX(-140px)";
     projectsBtn.classList.add("active");
     skillsBtn.classList.remove("active");
     homeBtn.classList.remove("active");
+    backToTopBtn.classList.remove("active");
     aboutBtn.style.opacity = 0;
+    skillsBtn.style.opacity = 0;
+    projectsBtn.style.opacity = 100;
     resumeBtn.style.opacity = 100;
   }
-  console.log("projects");
+};
+
+//link buttons
+const navigateToAbout = (e) => {
+  aboutBtn.style.display = "none";
+  backToTopBtn.style.display = "block";
+  backToTopBtn.classList.add("active");
+  skillsBtn.classList.remove("active");
+};
+const navigateToTop = (e) => {
+  backToTopBtn.style.display = "none";
+  aboutBtn.style.display = "block";
+  skillsBtn.classList.add("active");
+  backToTopBtn.classList.remove("active");
 };
 
 //calling functions on click
 skillsBtn.addEventListener("click", navigateToSkills);
 homeBtn.addEventListener("click", navigateToHome);
 projectsBtn.addEventListener("click", navigateToProjects);
+aboutBtn.addEventListener("click", navigateToAbout);
+backToTopBtn.addEventListener("click", navigateToTop);
+
+//setting change on scroll
+skillSlide.onscroll = function (event) {
+  let scroll = skillSlide.scrollTop;
+  let nav = document.getElementById("nav");
+  if (scroll > 100) {
+    nav.style.borderBottom = "#90ddf0 solid 1pt";
+    nav.style.boxShadow = "#90ddf0 0 0 15px";
+    skillSlide.classList.add("scrollBar");
+    aboutSect.style.opacity = 100;
+    navigateToAbout();
+  } else if (scroll < 100) {
+    nav.style.border = "none";
+    nav.style.boxShadow = "#0a090c 0 0 15px";
+    skillSlide.classList.remove("scrollBar");
+    aboutSect.style.opacity = 0;
+    navigateToTop();
+  }
+};
+
+//set wiggle animation on random skills
+const skillsArray = document.querySelectorAll(".pngSkill");
+const setWiggle = async () => {
+  for (let i = 0; i < skillsArray.length; i++) {
+    skillsArray[i].animate(wiggle, 1050, "swing");
+  }
+};
+
+//set wiggle animation here:
+const wiggle = [
+  { transform: "rotate(0)" },
+  { transform: "rotate(15deg)" },
+  { transform: "rotate(0)" },
+  { transform: "rotate(-15deg)" },
+  { transform: "rotate(0)" },
+];
+
+const wiggleTiming = {
+  duration: 1000,
+  iterations: 2,
+};
