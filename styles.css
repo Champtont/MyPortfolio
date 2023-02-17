@@ -238,16 +238,18 @@ footer {
   margin-right: auto;
 }
 #folder {
+  padding-top: 0.5em;
 }
 .previewBox {
   position: relative;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  margin-bottom: 1em;
 }
 .projectTitle {
   position: absolute;
-  top: 0;
+  top: -25px;
 }
 .previewImgContainer {
   overflow-x: hidden;
@@ -257,12 +259,17 @@ footer {
   height: 190px;
   background-color: var(--night);
   border-radius: 5px;
+  transition: border 0.3s ease-in-out;
+}
+.previewImgContainer:hover {
+  border: inset 1pt solid var(--non-photo-blue);
 }
 .webView {
   width: 334px;
   height: 170px;
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-bottom: 10px;
   margin-top: 10px;
 }
@@ -285,7 +292,23 @@ footer {
 }
 .previewOptionsBox {
   position: absolute;
+  width: 70%;
+  left: 16%;
   bottom: 0;
+  display: flex;
+  justify-content: space-around;
+}
+.prevBtn {
+  font-family: "Audiowide";
+  background-color: #07393c;
+  color: var(--anti-flash-white);
+  box-shadow: #080705 0 -5px 10px;
+  border-radius: 5px;
+  border: none;
+  padding: 0.5em 1em;
+}
+.descriptionModal {
+  padding-bottom: 1.5em;
 }
 
 #experiences {
@@ -330,6 +353,12 @@ footer {
     var(--honolulu-blue),
     var(--non-photo-blue)
   );
+}
+.closing {
+  animation: closing 0.3s linear;
+}
+.openUp {
+  animation: openUp 0.3s linear;
 }
 
 /*animation*/
@@ -393,6 +422,22 @@ footer {
   }
   100% {
     transform: rotate(0);
+  }
+}
+@keyframes openUp {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes closing {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(0);
   }
 }
 

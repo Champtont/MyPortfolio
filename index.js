@@ -123,3 +123,33 @@ const wiggle = [
   { transform: "rotate(-15deg)" },
   { transform: "rotate(0)" },
 ];
+
+//project page js
+//getting list of "about" buttons and descriptions
+const descriptorBtn = document.querySelectorAll(".projectDescript");
+
+const showHideDescription = (e) => {
+  const optionsBox = e.target.parentNode;
+  const descriptionBox = optionsBox.parentNode;
+  const actualDescription = descriptionBox.firstElementChild;
+
+  actualDescription.classList.toggle("noShow");
+
+  if (actualDescription.classList.contains("noShow")) {
+    actualDescription.classList.add("closing");
+    actualDescription.classList.remove("openUp");
+    e.target.innerText = "About";
+  } else {
+    actualDescription.classList.add("openUp");
+    actualDescription.classList.remove("closing");
+    e.target.innerText = "Less";
+  }
+};
+
+const addFunctionToBtn = () => {
+  for (let i = 0; i < descriptorBtn.length; i++) {
+    descriptorBtn[i].addEventListener("click", showHideDescription);
+  }
+};
+
+addFunctionToBtn();
