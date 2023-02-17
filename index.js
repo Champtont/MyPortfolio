@@ -108,10 +108,10 @@ skillSlide.onscroll = function (event) {
 };
 
 //set wiggle animation on random skills
-const skillsArray = document.querySelectorAll(".pngSkill");
+const skillsList = document.querySelectorAll(".pngSkill");
 const setWiggle = async () => {
-  for (let i = 0; i < skillsArray.length; i++) {
-    skillsArray[i].animate(wiggle, 1050, "swing");
+  for (let i = 0; i < skillsList.length; i++) {
+    skillsList[i].animate(wiggle, 1050, "swing") * 2;
   }
 };
 
