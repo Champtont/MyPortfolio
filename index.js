@@ -123,8 +123,3 @@ const wiggle = [
   { transform: "rotate(-15deg)" },
   { transform: "rotate(0)" },
 ];
-
-const wiggleTiming = {
-  duration: 1000,
-  iterations: 2,
-};
