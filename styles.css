@@ -216,7 +216,8 @@ footer {
   position: absolute;
   top: 0;
   right: -100dvw;
-  background-color: var(--pigment-green);
+  background-color: rgb(0, 0, 78);
+  color: aliceblue;
   overflow-x: hidden;
   overflow-y: scroll;
   transition: right 1s ease-in-out;
@@ -244,12 +245,13 @@ footer {
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  /*removed overflow hidden for position absolute description*/
   margin-bottom: 1em;
 }
 .projectTitle {
   position: absolute;
-  top: -25px;
+  top: -18px;
+  background-image: linear-gradient(transparent 30%, black, transparent 75%);
 }
 .previewImgContainer {
   overflow-x: hidden;
@@ -262,7 +264,7 @@ footer {
   transition: border 0.3s ease-in-out;
 }
 .previewImgContainer:hover {
-  border: inset 1pt solid var(--non-photo-blue);
+  box-shadow: inset 0 0 2pt 1pt var(--non-photo-blue);
 }
 .webView {
   width: 334px;
@@ -297,6 +299,8 @@ footer {
   bottom: 0;
   display: flex;
   justify-content: space-around;
+  transition: bottom 0.5s ease-in-out;
+  z-index: 1;
 }
 .prevBtn {
   font-family: "Audiowide";
@@ -309,6 +313,17 @@ footer {
 }
 .descriptionModal {
   padding-bottom: 1.5em;
+}
+.descriptionModal > p {
+  position: absolute;
+  top: -8px;
+  height: 200px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 1em;
+  background-color: var(--night);
+  border-radius: 5px;
+  box-shadow: var(--non-photo-blue) 0 0 10px;
 }
 
 #experiences {

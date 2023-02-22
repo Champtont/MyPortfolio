@@ -138,10 +138,12 @@ const showHideDescription = (e) => {
   if (actualDescription.classList.contains("noShow")) {
     actualDescription.classList.add("closing");
     actualDescription.classList.remove("openUp");
+    optionsBox.style.bottom = 0;
     e.target.innerText = "About";
   } else {
     actualDescription.classList.add("openUp");
     actualDescription.classList.remove("closing");
+    optionsBox.style.bottom = "-30px";
     e.target.innerText = "Less";
   }
 };
