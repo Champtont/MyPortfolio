@@ -238,16 +238,19 @@ footer {
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 4em;
+  height: 100dvh;
 }
 #folder {
   padding-top: 0.5em;
+  padding-bottom: 3.5em;
 }
 .previewBox {
   position: relative;
   display: flex;
   flex-direction: column;
+  height: 230px;
   /*removed overflow hidden for position absolute description*/
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 .projectTitle {
   position: absolute;
@@ -276,6 +279,26 @@ footer {
 }
 .previewImgContainer:hover {
   box-shadow: inset 0 0 2pt 1pt var(--non-photo-blue);
+}
+.previewImgContainer:hover .arrowDown {
+  opacity: 1;
+}
+.arrowDown {
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  top: 160px;
+  left: 15px;
+  color: var(--non-photo-blue);
+  text-shadow: var(--non-photo-blue) 0 0 10px;
+  transition: opacity 0.5s ease-in-out;
+  background-image: linear-gradient(90deg, transparent, black, transparent);
+}
+.mobileArrow {
+  display: flex;
+  align-items: center;
+  animation: upAndDown 1s infinite;
+  margin-right: 0.5em;
 }
 .webView {
   width: 334px;
@@ -531,6 +554,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    min-height: 500px;
   }
   .previewBox {
     width: 30%;
