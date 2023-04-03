@@ -157,8 +157,25 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  gap: 2px;
+  gap: 4px;
   align-items: center;
+}
+.imgBox {
+  position: relative;
+}
+.infoPop {
+  position: absolute;
+  border-radius: 5px;
+  border: 1pt var(--non-photo-blue) solid;
+  padding: 0 0.5em;
+  background-color: var(--night);
+  color: aliceblue;
+  font-weight: bold;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 .pngSkill {
   width: 55px;
@@ -169,12 +186,16 @@ footer {
 .pngSkill:hover {
   animation: upAndDown infinite 0.5s linear;
 }
+.pngSkill:hover ~ .infoPop {
+  opacity: 1;
+  transform: translateY(-10px);
+}
 #currentBox {
   display: flex;
   justify-content: space-around;
 }
 #about {
-  padding: 2em 2em 4em 2em;
+  padding: 2em 2em 8em 2em;
   text-align: center;
   background-color: var(--honolulu-blue);
   transition: opacity 3s;
@@ -496,6 +517,19 @@ footer {
     transform: scaleY(0);
   }
 }
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  65% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
 /*media queries*/
 @media only screen and (max-width: 500px) {
@@ -540,7 +574,7 @@ footer {
     margin: auto;
   }
   .pngSkill {
-    width: 150px;
+    width: 100px;
   }
   #currentBox {
     width: 60%;
@@ -549,6 +583,28 @@ footer {
   #bonusBox {
     width: 60%;
     margin: auto;
+  }
+  .animateHere {
+    animation: slideIn 1s ease-in-out forwards;
+  }
+  li {
+    list-style: square;
+  }
+  #bonusBox li {
+    margin-bottom: 0.5em;
+    opacity: 0;
+  }
+  #bonusBox li:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  #bonusBox li:nth-child(3) {
+    animation-delay: 0.8s;
+  }
+  #bonusBox li:nth-child(4) {
+    animation-delay: 1.2s;
+  }
+  #bonusBox li:nth-child(5) {
+    animation-delay: 1.6s;
   }
   /*Right Box*/
   #folder {

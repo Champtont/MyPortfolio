@@ -14,6 +14,7 @@ const skillSlide = document.getElementById("leftSlide");
 const homeSlide = document.getElementById("middleSlide");
 const projectSlide = document.getElementById("rightSlide");
 const aboutSect = document.getElementById("about");
+const listItemArray = document.querySelectorAll("li");
 
 //functions for nav
 const navigateToSkills = (e) => {
@@ -79,6 +80,9 @@ const navigateToTop = (e) => {
   aboutBtn.style.display = "block";
   skillsBtn.classList.add("active");
   backToTopBtn.classList.remove("active");
+  for (let i = 0; i < listItemArray.length; i++) {
+    listItemArray[i].classList.remove("animateHere");
+  }
 };
 
 //calling functions on click
@@ -92,12 +96,15 @@ backToTopBtn.addEventListener("click", navigateToTop);
 skillSlide.onscroll = function (event) {
   let scroll = skillSlide.scrollTop;
   let nav = document.getElementById("nav");
-  if (scroll > 100) {
+  if (scroll > 150) {
     nav.style.borderBottom = "#90ddf0 solid 1pt";
     nav.style.boxShadow = "#90ddf0 0 0 15px";
     skillSlide.classList.add("scrollBar");
     aboutSect.style.opacity = 100;
     navigateToAbout();
+    for (let i = 0; i < listItemArray.length; i++) {
+      listItemArray[i].classList.add("animateHere");
+    }
   } else if (scroll < 100) {
     nav.style.border = "none";
     nav.style.boxShadow = "#0a090c 0 0 15px";
@@ -107,7 +114,7 @@ skillSlide.onscroll = function (event) {
   }
 };
 
-//set wiggle animation on random skills
+//set wiggle animation on skills
 const skillsList = document.querySelectorAll(".pngSkill");
 const setWiggle = async () => {
   for (let i = 0; i < skillsList.length; i++) {
@@ -123,6 +130,7 @@ const wiggle = [
   { transform: "rotate(-15deg)" },
   { transform: "rotate(0)" },
 ];
+//set slide In transformation
 
 //project page js
 //getting list of "about" buttons and descriptions
