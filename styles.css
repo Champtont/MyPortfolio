@@ -274,10 +274,14 @@ footer {
   /*removed overflow hidden for position absolute description*/
   margin-bottom: 2em;
 }
+.previewBox:hover .projectTitle {
+  transform: translateX(50px) scale(1.1);
+}
 .projectTitle {
   position: absolute;
   top: -18px;
   background-image: linear-gradient(transparent 30%, black, transparent 75%);
+  transition: transform 0.5s ease-in-out;
 }
 .previewImgContainer {
   overflow-x: hidden;
@@ -615,7 +619,6 @@ footer {
   }
   .previewBox {
     width: 30%;
-    margin: 0;
   }
   .previewImgContainer {
     display: flex;
