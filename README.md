@@ -1,2 +1,2 @@
 # MyPortfolio
-Building an compilation of my work
+Building a compilation of my work
