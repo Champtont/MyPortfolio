@@ -208,7 +208,7 @@ footer {
   height: 100%;
   background-color: var(--honolulu-blue);
   transition: transform 1s ease-in-out;
-  background-image: url("/public/zerosAndOnes.gif");
+  background-image: url("../public/zerosAndOnes.gif");
   background-repeat: no-repeat;
   background-size: cover;
 }
